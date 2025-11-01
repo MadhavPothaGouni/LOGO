@@ -1,0 +1,38 @@
+.filters {
+  width: 250px;
+  padding-right: 20px;
+  border-right: 1px solid #e5e5e5;
+}
+
+.filters-title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.filter-section {
+  margin-bottom: 12px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.filter-content {
+  margin-left: 6px;
+  margin-top: 4px;
+}
+
+.filter-content label {
+  font-size: 13px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
