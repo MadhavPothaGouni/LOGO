@@ -1,20 +1,13 @@
-import axios from "axios";
-
-const API = axios.create({
-  baseURL: "https://fakestoreapi.com",
-  timeout: 10000
-});
-
-export const fetchProducts = async () => {
-  const { data } = await API.get("/products");
-  // Map to your card shape if needed
+// src/services/api.js
+export async function fetchProducts() {
+  const res = await fetch("https://fakestoreapi.com/products");
+  if (!res.ok) throw new Error("API error");
+  // Normalize to match your card fields
+  const data = await res.json();
   return data.map(p => ({
     id: p.id,
     title: p.title,
     price: p.price,
-    image: p.image,
-    category: p.category,
-    rating: p.rating?.rate ?? 0,
-    ratingCount: p.rating?.count ?? 0
+    image: p.image
   }));
-};
+}

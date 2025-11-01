@@ -3,6 +3,8 @@ import Header from "./components/Header/Header";
 import Filters from "./components/Filters/Filters";
 import ProductGrid from "./components/ProductGrid/ProductGrid";
 import Footer from "./components/Footer/Footer";
+import FilterChips from "./components/FilterChips/FilterChips";
+import MobileFilters from "./components/MobileFilters/MobileFilters"; 
 import "./styles/globals.css";
 import "./App.css";
 
@@ -11,7 +13,7 @@ function App() {
     <>
       <Header />
 
-      {/* ✅ Hero Section */}
+      {/* Hero Section */}
       <div className="hero">
         <h1>DISCOVER OUR PRODUCTS</h1>
         <p>
@@ -19,8 +21,14 @@ function App() {
           scelerisque. Dolor integer scelerisque nibh amet mi ut elementum dolor.
         </p>
       </div>
+
+      {/* Sort + Filter Row */}
       <SortBar />
-      {/* ✅ Main Layout */}
+
+      {/* Applied filter chips row */}
+      <FilterChips />
+
+      {/* Main Layout */}
       <main className="layout container">
         <aside>
           <Filters />
@@ -30,6 +38,9 @@ function App() {
           <ProductGrid />
         </section>
       </main>
+
+      {/* Mobile Filters Drawer */}
+      <MobileFilters />
 
       <Footer />
     </>

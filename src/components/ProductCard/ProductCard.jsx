@@ -1,25 +1,33 @@
-import "./ProductCard.css";
 import { FiHeart } from "react-icons/fi";
+import "./ProductCard.css";
+import { useState } from "react";
 
 export default function ProductCard({ product }) {
+  const [fav, setFav] = useState(false);
+
   return (
     <div className="product-card">
-      <div className="img-box">
-        {product.badge === "NEW PRODUCT" && (
-          <span className="badge new">NEW PRODUCT</span>
-        )}
-        {product.badge === "OUT OF STOCK" && (
-          <span className="badge out">OUT OF STOCK</span>
-        )}
+      
+      <div className="img-wrapper">
+        <img src={product.image} alt={product.title} className="product-img" />
 
-        <img src={product.image} alt={product.title} />
-        <button className="wishlist">
+        {/* Heart icon */}
+        <button 
+          className={`wishlist-btn ${fav ? "active" : ""}`}
+          onClick={() => setFav(!fav)}
+        >
           <FiHeart />
         </button>
+
+        {/* Overlay */}
+        <div className="overlay"></div>
+
+        {/* CTA Button */}
+        <button className="view-btn">View Product</button>
       </div>
 
-      <h4 className="title">{product.title}</h4>
-      <p className="subtext">Sign in or Create an account to see pricing</p>
+      <h3 className="card-title">{product.title}</h3>
+      <p className="card-sub">Sign in or Create account to see pricing</p>
     </div>
   );
 }

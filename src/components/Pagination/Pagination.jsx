@@ -1,4 +1,3 @@
-// components/Pagination/Pagination.jsx
 export default function Pagination({ page, totalPages, onChange }) {
   const go = p => onChange(Math.min(Math.max(1, p), totalPages));
   const items = Array.from({ length: totalPages }, (_, i) => i + 1).slice(0, 7); // simple window

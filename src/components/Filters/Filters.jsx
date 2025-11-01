@@ -1,49 +1,56 @@
-import { useState } from "react";
+import FilterSection from "./FilterSection";
 import "./Filters.css";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-
-const filterSections = [
-  "CUSTOMIZABLE",
-  "IDEAL FOR",
-  "OCCASION",
-  "WORK",
-  "FABRIC",
-  "SEGMENT",
-  "SUITABLE FOR",
-  "RAW MATERIALS",
-  "PATTERN",
-];
-
 export default function Filters() {
-  const [openSections, setOpenSections] = useState({});
-
-  const toggleSection = (section) => {
-    setOpenSections((prev) => ({
-      ...prev,
-      [section]: !prev[section],
-    }));
-  };
-
   return (
-    <div className="filters">
-      <div className="filters-title">FILTERS</div>
+    <div className="filters-container">
+      <h4 className="filters-title">FILTERS</h4>
 
-      {filterSections.map((sec) => (
-        <div key={sec} className="filter-section">
-          <div className="filter-header" onClick={() => toggleSection(sec)}>
-            <span>{sec}</span>
-            {openSections[sec] ? <FiChevronUp /> : <FiChevronDown />}
-          </div>
+      {/* Customizable (with checkbox) */}
+      <FilterSection
+        title="CUSTOMIZABLE"
+        options={["All"]}
+        showCheckbox={true}
+      />
 
-          {openSections[sec] && (
-            <div className="filter-content">
-              <label>
-                <input type="checkbox" /> All
-              </label>
-            </div>
-          )}
-        </div>
-      ))}
+      <FilterSection
+        title="IDEAL FOR"
+        options={["All", "Women", "Men", "Kids"]}
+      />
+
+      <FilterSection
+        title="OCCASION"
+        options={["All", "Casual", "Work", "Travel"]}
+      />
+
+      <FilterSection
+        title="WORK"
+        options={["All", "Office", "Outdoor"]}
+      />
+
+      <FilterSection
+        title="FABRIC"
+        options={["All", "Cotton", "Leather", "Wool"]}
+      />
+
+      <FilterSection
+        title="SEGMENT"
+        options={["All", "Premium", "Luxury"]}
+      />
+
+      <FilterSection
+        title="SUITABLE FOR"
+        options={["All", "Adults", "Kids"]}
+      />
+
+      <FilterSection
+        title="RAW MATERIALS"
+        options={["All", "Organic", "Recycled"]}
+      />
+
+      <FilterSection
+        title="PATTERN"
+        options={["All", "Solid", "Printed"]}
+      />
     </div>
   );
 }

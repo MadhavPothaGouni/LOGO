@@ -1,17 +1,35 @@
 import "./SortBar.css";
-import { FiChevronDown } from "react-icons/fi";
+import SortDropdown from "../SortDropdown/SortDropdown";
 
 export default function SortBar() {
+  // Trigger global event to open mobile filters
+  const openMobileFilters = () => {
+    window.dispatchEvent(new Event("openFilters"));
+  };
+
   return (
-    <div className="sortbar container">
+    <div className="sort-bar container">
+      
+      {/* Left Side */}
       <div className="left">
-        <span>3425 ITEMS</span>
-        <button className="hide-filter">HIDE FILTER</button>
+        
+        {/* Mobile Filter Button */}
+        <button className="filter-mobile-btn" onClick={openMobileFilters}>
+          FILTER
+        </button>
+
+        {/* Item count */}
+        <span className="items">3425 ITEMS</span>
+
+        {/* Desktop only - hide filters */}
+        <button className="hide-filter">
+          <span>{"<"}</span> HIDE FILTER
+        </button>
       </div>
 
+      {/* Right Side */}
       <div className="right">
-        <span>RECOMMENDED</span>
-        <FiChevronDown />
+        <SortDropdown />
       </div>
     </div>
   );

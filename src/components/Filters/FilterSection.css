@@ -1,0 +1,59 @@
+/* Filter Section Layout */
+.filter-section {
+  width: 100%;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+/* Title Row */
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.filter-title {
+  flex: 1;
+  margin-left: 6px;
+}
+
+.filter-checkbox {
+  margin-right: 6px;
+}
+
+/* Dropdown Items */
+.filter-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 6px;
+}
+
+.filter-item {
+  font-size: 13px;
+  padding: 4px 0;
+  cursor: pointer;
+  color: #555;
+}
+
+.filter-item:hover {
+  color: black;
+}
+
+/* Selected Tag */
+.filter-item.selected {
+  font-weight: bold;
+  color: black;
+  background: #f2f2f2;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+/* Divider */
+.filter-divider {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 10px 0;
+}

@@ -1,0 +1,49 @@
+/* Overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 90;
+}
+
+/* Drawer */
+.mobile-filter-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 85%;
+  height: 100vh;
+  background: #fff;
+  padding: 15px;
+  z-index: 100;
+  animation: slideIn .3s ease forwards;
+  overflow-y: auto;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* Header */
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.close-btn {
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Hide desktop sidebar when drawer exists */
+@media(max-width: 768px) {
+  aside {
+    display: none;
+  }
+}
